@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+
+    <style type="text/tailwindcss">
+      @layer components {
+        .active {
+          @apply bg-blue-500 text-white;
+        }
+      }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body class="bg-[#EFEFEF]">
+    <div class="container min-h-screen">
+      <header class="max-w-[95%] mx-auto my-4 mb-16 bg-white">
+        <!-- navbar starts -->
+
+        <div class="flex justify-between">
+          <div class="">
+            <a class="flex items-center gap-2 font-semibold text-2xl" href="">
+              <img class="w-9 h-9" src="./assets/github-logo.png" alt="" />
+              GitHub Issues Tracker</a
+            >
+          </div>
+
+          <div class="flex gap-4">
+            <!-- Searchbar starts -->
+            <div class="flex items-center text-[#64748B] relative">
+              <span>
+                <svg
+                  class="w-5 h-5 absolute top-1/3 ml-4"
+                  fill="#64748B"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 640"
+                >
+                  <path
+                    d="M544 513L397.2 364.2C417.2 336.3 429.1 302 429.1 265C429.1 171.9 354.4 96.1 262.6 96.1C170.7 96 96 171.8 96 264.9C96 358 170.7 433.8 262.5 433.8C302.3 433.8 338.8 419.6 367.5 395.9L513.5 544L544 513zM262.5 394.8C191.9 394.8 134.4 336.5 134.4 264.9C134.4 193.3 191.9 135 262.5 135C333.1 135 390.6 193.3 390.6 264.9C390.6 336.5 333.2 394.8 262.5 394.8z"
+                  />
+                </svg>
+              </span>
+              <input
+                id="search"
+                class="py-4 pl-10 pr-4 rounded-lg border-1.5 border-[#64748B] font-semibold text-base"
+                type="search"
+                placeholder="Search issues..."
+              />
+            </div>
+            <!-- End Searchbar -->
+
+            <div
+              class="flex items-center text-base font-semibold text-white bg-[#4A00FF] rounded-lg p-4 gap-1 w-fit cursor-pointer"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <path
+                  d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"
+                />
+              </svg>
+              New Issues
+            </div>
+          </div>
+        </div>
+        <!-- end navbar -->
+      </header>
+
+      <main class="max-w-[90%] mx-auto bg-[#F8FAFC]">
+        <!-- Tabs start -->
+        <div class="flex gap-2 p-6 mb-4 bg-white shadow-sm border border-gray-200 rounded-md">
+          <button
+            class="tab-btn active min-w-26 px-3 py-2 text-[#64748B] border-2 border-[#E4E4E7] rounded-md"
+            data-type="all"
+          >
+            All
+          </button>
+          <button
+            class="tab-btn min-w-26 px-3 py-2 text-[#64748B] border-2 border-[#E4E4E7] rounded-md"
+            data-type="open"
+          >
+            Open
+          </button>
+          <button
+            class="tab-btn min-w-26 px-3 py-2 text-[#64748B] border-2 border-[#E4E4E7] rounded-md"
+            data-type="closed"
+          >
+            Closed
+          </button>
+        </div>
+        <!-- End Tabs -->
+
+        <!-- Issues section start -->
+        <div
+          class="flex justify-between gap-4 p-6 bg-white shadow-sm border border-gray-200 rounded-md"
+        >
+          <div class="flex gap-2">
+            <div class="flex justify-center items-center bg-[#ECE4FF] w-12 h-12 rounded-full">
+              <img class="w-8 h-8" src="./assets/Aperture.png" alt="" />
+            </div>
+
+            <div id="issue-count">
+              <h3 class="text-xl font-semibold">50 Issues</h3>
+              <p class="text-[#E4E4E7]">Track and manage your project issues</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-[#00A96E]"></div>
+              <p class="font-semibold">Open</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-[#A855F7]"></div>
+              <p class="font-semibold">Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- End Issues Section -->
+
+        <!-- Issues Card Container -->
+
+        <div
+          id="card-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 p-6 bg-[#FBFBFB]"
+        >
+          <div class="card p-4 bg-white border border-t-3 border-[#00A96E] rounded-md shadow-md">
+            <!-- alert tag start -->
+            <div class="flex justify-between mb-2">
+              <div class="w-6 h-6 rounded-full bg-[#CBFADB]">
+                <img class="" src="./assets/Open-Status.png" alt="" />
+              </div>
+              <div
+                class="px-8 py-2 bg-[#FEECEC] rounded-2xl w-fit text-xs uppercase font-medium text-[#EF4444]"
+              >
+                High
+              </div>
+            </div>
+            <!-- end alert tag  -->
+
+            <!-- Issue Info -->
+            <div>
+              <h4 class="text-sm font-semibold text-[#1F2937] mb-2">
+                Fix navigation menu on mobile devices
+              </h4>
+
+              <p class="text-xs text-[#E4E4E7] mb-2">
+                The navigation menu doesn't collapse properly on mobile devices...
+              </p>
+
+              <!-- bug status -->
+              <div class="flex gap-2 mb-4">
+                <div
+                  class="text-[#EF4444] uppercase flex items-center font-medium bg-[#FEECEC] gap-1 px-4 py-1 border border-[#FECACA] rounded-2xl w-fit"
+                >
+                  <span>
+                    <svg
+                      class="w-3.5 h-3.5"
+                      viewBox="0 0 8.625 10.5015"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      fill="none"
+                      customFrame="#000000"
+                    >
+                      <path
+                        id="Vector"
+                        d="M7.56328 1.48363L8.08547 0.961913C8.13779 0.90959 8.1793 0.847473 8.20762 0.779109C8.23593 0.710745 8.25051 0.637472 8.25051 0.563476C8.25051 0.489479 8.23593 0.416207 8.20762 0.347843C8.1793 0.279479 8.13779 0.217362 8.08547 0.165038C8.03315 0.112715 7.97103 0.0712093 7.90267 0.042892C7.8343 0.0145747 7.76103 -9.54911e-10 7.68703 1.66533e-16C7.61304 9.54911e-10 7.53976 0.0145747 7.4714 0.042892C7.40304 0.0712093 7.34092 0.112715 7.2886 0.165038L6.71906 0.736913C6.00803 0.257538 5.17004 0.00143445 4.3125 0.00143445C3.45497 0.00143445 2.61697 0.257538 1.90594 0.736913L1.33547 0.165976C1.2298 0.0603035 1.08648 0.000937521 0.937033 0.000937521C0.78759 0.000937521 0.644268 0.0603035 0.538596 0.165976C0.432923 0.271648 0.373557 0.41497 0.373557 0.564413C0.373557 0.713856 0.432923 0.857178 0.538596 0.962851L1.06172 1.48363C0.37636 2.26714 -0.000957759 3.27298 1.8258e-06 4.31394L1.8258e-06 6.18894C1.8258e-06 7.33269 0.454353 8.42959 1.2631 9.23834C2.07185 10.0471 3.16876 10.5014 4.3125 10.5014C5.45625 10.5014 6.55315 10.0471 7.3619 9.23834C8.17065 8.42959 8.625 7.33269 8.625 6.18894L8.625 4.31394C8.62596 3.27298 8.24864 2.26714 7.56328 1.48363ZM7.5 4.31394L7.5 4.50144L1.125 4.50144L1.125 4.31394C1.125 3.46857 1.46083 2.65781 2.0586 2.06004C2.65637 1.46227 3.46712 1.12644 4.3125 1.12644C5.15788 1.12644 5.96863 1.46227 6.56641 2.06004C7.16418 2.65781 7.5 3.46857 7.5 4.31394ZM4.3125 9.37644C3.46739 9.37558 2.65714 9.03947 2.05956 8.44189C1.46197 7.8443 1.12587 7.03406 1.125 6.18894L1.125 5.62644L7.5 5.62644L7.5 6.18894C7.49913 7.03406 7.16303 7.8443 6.56545 8.44189C5.96786 9.03947 5.15761 9.37558 4.3125 9.37644ZM4.875 3.18894C4.875 3.04061 4.91899 2.8956 5.0014 2.77227C5.08381 2.64893 5.20094 2.5528 5.33799 2.49603C5.47503 2.43927 5.62583 2.42442 5.77132 2.45336C5.91681 2.48229 6.05044 2.55373 6.15533 2.65861C6.26022 2.7635 6.33165 2.89714 6.36059 3.04263C6.38953 3.18811 6.37468 3.33891 6.31791 3.47596C6.26115 3.613 6.16502 3.73014 6.04168 3.81255C5.91834 3.89496 5.77334 3.93894 5.625 3.93894C5.42609 3.93894 5.23532 3.85993 5.09467 3.71927C4.95402 3.57862 4.875 3.38786 4.875 3.18894ZM2.25 3.18894C2.25 3.04061 2.29399 2.8956 2.3764 2.77227C2.45881 2.64893 2.57594 2.5528 2.71299 2.49603C2.85003 2.43927 3.00083 2.42442 3.14632 2.45336C3.29181 2.48229 3.42544 2.55373 3.53033 2.65861C3.63522 2.7635 3.70665 2.89714 3.73559 3.04263C3.76453 3.18811 3.74968 3.33891 3.69291 3.47596C3.63615 3.613 3.54002 3.73014 3.41668 3.81255C3.29334 3.89496 3.14834 3.93894 3 3.93894C2.80109 3.93894 2.61032 3.85993 2.46967 3.71927C2.32902 3.57862 2.25 3.38786 2.25 3.18894Z"
+                        fill="rgb(239,68,68)"
+                        fill-rule="nonzero"
+                      />
+                    </svg>
+                  </span>
+
+                  <p>bug</p>
+                </div>
+
+                <div
+                  class="text-[#D97706] uppercase flex items-center font-medium bg-[#FFF8DB] gap-1 px-4 py-1 border border-[#FDE68A] rounded-2xl w-fit"
+                >
+                  <span>
+                    <svg
+                      class="w-3.5 h-3.5"
+                      viewBox="0 0 10.125 10.125"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      fill="none"
+                      customFrame="#000000"
+                    >
+                      <path
+                        id="Vector"
+                        d="M5.0625 0C4.06123 1.66533e-16 3.08245 0.29691 2.24993 0.853185C1.4174 1.40946 0.768531 2.20011 0.385362 3.12516C0.00219351 4.05022 -0.0980609 5.06812 0.0972768 6.05014C0.292614 7.03217 0.774771 7.93423 1.48277 8.64223C2.19078 9.35023 3.09283 9.83239 4.07486 10.0277C5.05689 10.2231 6.07479 10.1228 6.99984 9.73964C7.92489 9.35647 8.71554 8.7076 9.27182 7.87507C9.82809 7.04255 10.125 6.06377 10.125 5.0625C10.1235 3.7203 9.58967 2.4335 8.64059 1.48442C7.69151 0.535336 6.4047 0.00148885 5.0625 0ZM7.13672 6.34125C7.3742 5.957 7.49998 5.51421 7.49998 5.0625C7.49998 4.61079 7.3742 4.168 7.13672 3.78375L8.21485 2.70563C8.72451 3.38569 9 4.21265 9 5.0625C9 5.91235 8.72451 6.73931 8.21485 7.41937L7.13672 6.34125ZM3.75 5.0625C3.75 4.80291 3.82698 4.54915 3.9712 4.33331C4.11542 4.11747 4.3204 3.94925 4.56023 3.84991C4.80006 3.75057 5.06396 3.72458 5.31856 3.77522C5.57316 3.82586 5.80702 3.95087 5.99058 4.13442C6.17414 4.31798 6.29914 4.55184 6.34978 4.80644C6.40043 5.06104 6.37443 5.32494 6.27509 5.56477C6.17575 5.8046 6.00753 6.00958 5.79169 6.1538C5.57585 6.29802 5.32209 6.375 5.0625 6.375C4.71441 6.375 4.38057 6.23672 4.13442 5.99058C3.88828 5.74444 3.75 5.4106 3.75 5.0625ZM7.41938 1.91016L6.34125 2.98828C5.957 2.7508 5.51421 2.62502 5.0625 2.62502C4.61079 2.62502 4.168 2.7508 3.78375 2.98828L2.70563 1.91016C3.38569 1.40049 4.21265 1.125 5.0625 1.125C5.91236 1.125 6.73931 1.40049 7.41938 1.91016ZM1.91016 2.70703L2.98828 3.78516C2.75081 4.16941 2.62502 4.61219 2.62502 5.06391C2.62502 5.51562 2.75081 5.95841 2.98828 6.34266L1.91016 7.42078C1.40049 6.74072 1.125 5.91376 1.125 5.06391C1.125 4.21405 1.40049 3.3871 1.91016 2.70703ZM2.70703 8.21625L3.78516 7.13812C4.16941 7.3756 4.6122 7.50139 5.06391 7.50139C5.51562 7.50139 5.95841 7.3756 6.34266 7.13812L7.42078 8.21625C6.74072 8.72592 5.91376 9.00141 5.06391 9.00141C4.21405 9.00141 3.3871 8.72592 2.70703 8.21625Z"
+                        fill="rgb(217,119,6)"
+                        fill-rule="nonzero"
+                      />
+                    </svg>
+                  </span>
+
+                  <p>help wanted</p>
+                </div>
+              </div>
+              <!-- end bug status -->
+            </div>
+            <!-- End Issue Info -->
+            <hr class="h-0.5 bg-[#E4E4E7] border-none" />
+
+            <!-- author info -->
+            <div class="flex flex-col gap-2 py-4 text-xs text-[#E4E4E7]">
+              <p>#1by john_doe</p>
+              <p>1/15/2024</p>
+            </div>
+            <!-- end author info -->
+          </div>
+        </div>
+
+        <!-- End Issues Card Container -->
+      </main>
+    </div>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+    <dialog id="my_modal_1" class="modal">
+      <div class="modal-box">
+        <h3 class="text-lg font-bold">Hello!</h3>
+        <p class="py-4">Press ESC key or click the button below to close</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

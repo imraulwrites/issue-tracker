@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="./style/style.css" />
+
+    <style>
+      @layer utilities {
+        .custom-btn {
+          @apply bg-blue;
+        }
+      }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <!-- login form start -->
+
+      <section class="flex items-center justify-center bg-[#F8FAFC] h-screen">
+        <div class="flex flex-col p-8 bg-white w-[80%] md:w-[60%] lg:w-[35%] rounded-md shadow-md">
+          <div class="flex flex-col items-center pb-6">
+            <img class="pb-6" src="./assets/github-logo.png" alt="github" />
+            <h1 class="text-2xl text-center font-semibold pb-1">GitHub Issues Tracker</h1>
+            <p class="text-[#64748B] text-base">Sign in to manage your issues</p>
+          </div>
+
+          <form id="login-form">
+            <fieldset class="fieldset rounded-box p-4">
+              <label for="username" class="label text-sm font-medium">Username</label>
+              <input
+                id="username"
+                type="username"
+                class="input text-[#64748B] text-base p-4 w-full"
+                placeholder="Enter Username"
+              />
+
+              <label for="password" class="label text-sm font-medium">Password</label>
+              <input
+                id="password"
+                type="password"
+                class="input text-[#64748B] text-base p-4 mb-6 w-full"
+                placeholder="Enter Password"
+              />
+
+              <button
+                type="submit"
+                class="bg-[#4A00FF] text-white font-semibold text-base p-4 rounded-md mb-6"
+              >
+                Sign In
+              </button>
+            </fieldset>
+
+            <fieldset>
+              <legend>Demo Credentials</legend>
+            </fieldset>
+
+            <label for="">Username: admin</label>
+            <label for="">Password: admin123</label>
+          </form>
+        </div>
+      </section>
+      <!-- end login form -->
+    </main>
+    <script src="./login.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
